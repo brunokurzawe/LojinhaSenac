@@ -11,6 +11,22 @@ public class Cliente extends Pessoa {
     private Double limiteCredito;
 
     //getters e setters
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Double getLimiteCredito() {
+        return limiteCredito;
+    }
+
+    public void setLimiteCredito(Double limiteCredito) {
+        this.limiteCredito = limiteCredito;
+    }
 }
 
 
