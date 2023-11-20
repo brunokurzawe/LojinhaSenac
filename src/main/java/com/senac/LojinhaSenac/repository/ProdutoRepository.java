@@ -1,16 +1,12 @@
 package com.senac.LojinhaSenac.repository;
 
-import com.senac.LojinhaSenac.model.Cliente;
+import com.senac.LojinhaSenac.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
-    public Cliente findByCpf(String cpf);
+    public Produto findByDescricao(String descricao);
 
 }
-
-
-
-

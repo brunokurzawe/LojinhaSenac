@@ -1,5 +1,6 @@
 package com.senac.LojinhaSenac.service;
 
+import com.senac.LojinhaSenac.enterprise.ValidationException;
 import com.senac.LojinhaSenac.model.Cliente;
 import com.senac.LojinhaSenac.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,15 @@ public class ClienteService {
     private ClienteRepository repository;
 
     public Cliente salvar(Cliente entity) {
+
+        if(entity.getNome().length() < 3){
+            throw new ValidationException("O nome deve ter mais de 3 caracteres!");
+        }
+
+        if(repository.findByCpf(entity.getCpf()) != null){
+            throw new ValidationException("Já existe um cliente com esse CPF cadastrado!");
+        }
+
         return repository.save(entity);
     }
 
